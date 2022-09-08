@@ -1,0 +1,41 @@
+<%- include('partials/head', {
+    title: 'Consulta',
+    headers: [
+        { type: 'css', path: '/css/main'}
+    ]
+}) %>
+
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <form class="form" action="/event/finish" method="post">
+            <h1>Agendamento</h1>
+
+            <input type="hidden" name="id" value="<%= id %>">
+
+            <label for="name">
+                <p>Nome</p>
+                <input type="text" id="name" value="<%= name %>" readonly>
+            </label>
+
+            <label for="email">
+                <p>Email</p>
+                <input type="email" id="email" value="<%= email %>" readonly>
+            </label>
+
+            <label for="desc">
+                <p>Descição</p>
+                <input type="text" id="desc" value="<%= desc %>" readonly>
+            </label>
+
+            <label for="date">
+                <p>Data</p>
+                <%= date %>
+                <input type="datetime-local" id="date" value="<%= `${date.getFullYear()}-${date.getMonth() < 9 ? '0' : ''}${date.getMonth() +1}-${date.getDate() < 10 ? '0' : ''}${date.getDate()}T${date.toTimeString().slice(0, 5)}` %>" readonly>
+            </label>
+
+            <button type="submit" id="Finalizar" <%= finished ? 'disabled' : '' %> >Finalizar consulta</button>
+        </form>
+    </main>
+</body>
+</html>

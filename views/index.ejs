@@ -1,0 +1,18 @@
+<%- include('partials/head', {
+    title: 'Agenda',
+    headers: [
+        { type: 'js', path: '/fullcalendar/main' },
+        { type: 'css', path: '/fullcalendar/main' },
+        { type: 'css', path: '/css/index' }
+    ]
+}) %>
+
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <div id="calendar"></div>
+    </main>
+</body>
+
+<script src="/js/index.js"></script>
+</html>

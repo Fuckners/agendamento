@@ -1,0 +1,46 @@
+<%- include('partials/head', {
+    title: 'Listagem de consultas',
+    headers: [
+        { type: 'css', path: '/css/list' }
+    ]
+}) %>
+
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <h1>LISTAGEM DE CONSULTAS</h1>
+
+        <div class="search">
+            <form class="search" action="/list" method="get">
+                <label for="query">Pesquisar</label>
+                <input type="search" name="q" id="query" value="<%= query %>" placeholder="Faça uma pesquisa!">
+
+                <label class="filters">
+                    <p>Filtros</p>
+                    <select name="filter" id="filter">
+                        <option value="" selected>Deseja aplicar algum filtro?</option>
+                        <option value="ALFDESC">Alfabetica decrescente</option>
+                        <option value="ALFASC">Alfabetica crescente</option>
+                        <option value="DATEDESC">Cronológica decrescente</option>
+                        <option value="DATEASC">Cronológica crescente</option>
+                    </select>
+                </label>
+                <button type="submit">Pesquisar</button>
+            </form>
+        </div>
+        
+        <div class="consultas">
+            <h2>Resultados</h2>
+            <% for (consulta of consultas) { %>
+                <div class="consulta">
+                    <h3><%= consulta.name %></h3>
+                    <p><%= consulta.desc %></p>
+                    <small><%= consulta.start.toString().slice(0, 21) %></small>
+                    <br>
+                    <a href="/event/<%= consulta.id %>"><button>Vizualizar</button></a>
+                </div>
+            <% } %>
+        </div>
+    </main>
+</body>
+</html>

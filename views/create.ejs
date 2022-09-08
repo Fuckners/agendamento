@@ -1,0 +1,44 @@
+<%- include('partials/head', {
+    title: 'Agendar',
+    headers: [
+        { type: 'css', path: '/css/main'}
+    ]
+}) %> 
+
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <form action="/create" method="post">
+            <h1>Agendamento</h1>
+            <small class="error"><%= erros.name + erros.email + erros.cpf + erros.desc + erros.date %></small>
+            <label>
+                <p>Nome:</p>
+                <input type="text" name="name" id="name" value="<%= dados.name %>" placeholder="Nome do paciente" maxlength="100" required>
+            </label>
+    
+            <label>
+                <p>Email:</p>
+                <input type="email" name="email" id="email" value="<%= dados.email %>" placeholder="Email do paciente" maxlength="100" required>
+            </label>
+    
+            <label>
+                <p>CPF:</p>
+                <input type="text" name="cpf" id="cpf" value="<%= dados.cpf %>" placeholder="CPF do paciente (000.000.000-00)" maxlength="14" required>
+            </label>
+
+            <label>
+                <p>Descrição:</p>
+                <textarea name="desc" placeholder="Descrição do exame" id="desc" rows="1" maxlength="400" required><%= dados.desc %></textarea>
+            </label>
+    
+            <label>
+                <p>Data da consulta:</p>
+                <input type="datetime-local" name="date" id="date" value="<%= dados.date %>" placeholder="Data da consulta (DD/MM/AAAA)" required>
+            </label>
+
+            <button type="submit">Finalizar agendamento</button>
+        </form>
+    </main>
+</body>
+<script src="/js/create.js"></script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <h1>Confirmação de Consulta</h1>
+        <div>
+            <h3>Nome do paciente</h3>
+            <p><%= consulta.name %></p>
+            <h3>Descrição da consulta</h3>
+            <p><%= consulta.desc %></p>
+
+            <h3>Horário</h3>
+            <%= consulta.start.getHours() < 9 ? '0' : '' + consulta.start.getHours() + ':' + consulta.start.getMinutes(); %> até <%= consulta.start.getMinutes() < 9 ? '0' : '' + consulta.end.getHours() + ':' + consulta.end.getMinutes(); %>
+        </div>
+    </main>
+</body>
+</html>

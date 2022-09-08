@@ -1,0 +1,28 @@
+<button id="menu">MENU</button>
+
+<header class="hidden">
+    <h1>Eu sou uma logo!</h1>
+    <nav>
+        <a href="/" rel="Principal">Calendário</a>
+        <a href="/cadastro" rel="Principal">Nova consulta</a>
+        <a href="/list" rel="Principal">Todas as consultas</a>
+    </nav>
+</header>
+
+<script>
+    const menu = document.querySelector('#menu');
+    const header = document.querySelector('header');
+    
+    menu.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.add('hidden');
+        header.classList.remove('hidden');
+    });
+
+    header.addEventListener('click', e => e.stopPropagation());
+
+    document.body.addEventListener('click', () => {
+        menu.classList.remove('hidden');
+        header.classList.add('hidden');
+    });
+</script>
